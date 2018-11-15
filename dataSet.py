@@ -53,9 +53,24 @@ class DataSet:
                 if rotule == d[0]:
                     d[0] = str(representation)
                 if rotule == d[1]:
-                    d[1] = str(representation)        
+                    d[1] = str(representation)       
         return data
+
+    def rotuleToRepresentation(self, rotuleOrRepresentation): #Retorna a representação de um rotulo
+        vertice = None
+        if type(rotuleOrRepresentation) is str:
+            for representation, rotule in self.verticeState.items():
+                if rotule == rotuleOrRepresentation:
+                    vertice = representation
+        elif type(rotuleOrRepresentation) is int:
+            vertice = self.verticeState.get(rotuleOrRepresentation)
+        return vertice
         
+    def getStates(self):
+        return list(self.verticeState.values())
+'''
 if __name__ == '__main__':
     dataSet = DataSet('./datasetNordeste.csv')
-    print(dataSet.getDataSet())
+    #print(dataSet.getDataSet())
+    print(dataSet.rotuleToRepresentation("RN"))
+'''
