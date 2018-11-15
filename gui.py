@@ -2,14 +2,14 @@ import sys
 from PyQt5.QtWidgets import QWidget, QApplication, QLineEdit, QLabel, QRadioButton, QPushButton, QPlainTextDocumentLayout
 
 class Gui(QWidget):
-    route = " "
-    time = " "
 
     def getRoute(self):
         return self.route
     
     def setRoute(self, newRoute):
         self.route = newRoute
+        self.route = " "
+        self.time = " "
 
     def __init__(self):
         super().__init__()
