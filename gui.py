@@ -124,7 +124,7 @@ class Gui(QWidget):
                 self.lblRouteResult.setText("Não foi possível encontrar uma rota.")
 
 if __name__ == '__main__':
-    dataSet = DataSet('./datasetNordeste.csv')
+    dataSet = DataSet('./dataSet.csv')
     app = QApplication(sys.argv)
     gui = Gui(dataSet)
     sys.exit(app.exec_())

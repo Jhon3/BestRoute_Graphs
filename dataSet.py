@@ -4,7 +4,7 @@ class DataSet:
 
     def __init__(self, file):
         self.file = file
-        self.dataSet = [[99999]*9 for i in range(9)] #Limitado aos estados do nordeste (lembrar de atualizar para todos os estados brasileiros)
+        self.dataSet = [[99999]*27 for i in range(27)]
         self.verticeState = {
             0: "RN",
             1: "PE",
@@ -70,7 +70,7 @@ class DataSet:
         return list(self.verticeState.values())
 '''
 if __name__ == '__main__':
-    dataSet = DataSet('./datasetNordeste.csv')
+    dataSet = DataSet('./dataSet.csv')
     #print(dataSet.getDataSet())
-    print(dataSet.rotuleToRepresentation("RN"))
+    print(dataSet.getDataSet())
 '''

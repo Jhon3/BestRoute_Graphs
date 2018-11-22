@@ -8,7 +8,7 @@ class Dijkstra:
         self.graph = graph
 
     def dijkstraRoute(self):
-        m = 9 #alterar o tamanho da matriz quando colocarmos todo o dataset
+        m = 27 #alterar o tamanho da matriz quando colocarmos todo o dataset
         i = 0
         vert = 0
         k = 0
