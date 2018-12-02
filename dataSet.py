@@ -1,10 +1,12 @@
-import numpy
+import numpy as np
 import csv
+import matplotlib.pyplot as plt
+import networkx as nx
 class DataSet:
 
     def __init__(self, file):
         self.file = file
-        self.dataSet = [[99999]*27 for i in range(27)]
+        self.dataSet = [[0]*27 for i in range(27)]
         self.verticeState = {
             0: "RN",
             1: "PE",
@@ -68,9 +70,3 @@ class DataSet:
         
     def getStates(self):
         return list(self.verticeState.values())
-'''
-if __name__ == '__main__':
-    dataSet = DataSet('./dataSet.csv')
-    #print(dataSet.getDataSet())
-    print(dataSet.getDataSet())
-'''

@@ -44,8 +44,6 @@ class Gui(QWidget):
         self.algoritmoDijk.move(300, 20)
         self.algoritmoDijk.setChecked(True)
 
-        self.algoritmoAS = QRadioButton('A*', self)
-        self.algoritmoAS.move(300, 40)
 
         #Criação do botao de pesquisa
         self.btnPesquisar = QPushButton('Pesquisar', self)
@@ -61,7 +59,7 @@ class Gui(QWidget):
         self.lblTimeResult.resize(100, 15)
 
         #Criação da label de custo medio, mostra o custo medio da viagem
-        self.lblCusto = QLabel('Custo médio:', self)
+        self.lblCusto = QLabel('Custo total:', self)
         self.lblCusto.move(10, 230)
 
         self.lblCustoResult = QLabel(" ", self)
@@ -98,14 +96,14 @@ class Gui(QWidget):
             origem = self.dataSet.rotuleToRepresentation(origem)
             destino = self.dataSet.rotuleToRepresentation(destino)
 
-            dijkstra = Dijkstra(origem, destino, self.dataSet.getDataSet())
+            dijkstra = Dijkstra(origem, destino, self.dataSet.getDataSet(), 27)
             
             #Calculando a melhor rota e pegando o tempo de execução e o custo da viagem
             firstTime = time.time()
             bestroute = dijkstra.dijkstraRoute()
             lastTime = time.time()
             timeOfExecution = lastTime - firstTime
-            self.lblTimeResult.setText(('{:.5f}'.format(timeOfExecution)) + " ms")
+            self.lblTimeResult.setText(('{:.5f}'.format(timeOfExecution)) + " s")
             
             if(bestroute is not None):
                 #Indicando o custo medio da viagem
@@ -124,7 +122,7 @@ class Gui(QWidget):
                 self.lblRouteResult.setText("Não foi possível encontrar uma rota.")
 
 if __name__ == '__main__':
-    dataSet = DataSet('./dataSet.csv')
+    dataSet = DataSet('./dataSetMain.csv')
     app = QApplication(sys.argv)
     gui = Gui(dataSet)
     sys.exit(app.exec_())
